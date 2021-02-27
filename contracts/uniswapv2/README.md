@@ -14,3 +14,5 @@ git diff 017ac93b1f6e970516652629a4d1bc47a8c584d7 .
 ```
 
 Diff: https://gist.github.com/macalinao/2ca9a77e221643061465df04a1872507
+
+Full repo diff: https://github.com/Ubeswap/ubeswap/compare/017ac93b1f6e970516652629a4d1bc47a8c584d7...Ubeswap:master
