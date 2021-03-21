@@ -1,21 +1,21 @@
 {
-  "name": "@koroswap/core",
+  "name": "@ubeswap/core",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "🎛 Core contracts for the Ubeswap protocol",
+  "description": "🟪🍠 Core contracts for the Ubeswap protocol",
   "files": [
     "contracts",
     "build"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koroswap/koroswap.git"
+    "url": "git+https://github.com/ubeswap/ubeswap.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/koroswap/koroswap/issues"
+    "url": "https://github.com/ubeswap/ubeswap/issues"
   },
-  "homepage": "https://github.com/koroswap/koroswap#readme",
+  "homepage": "https://github.com/ubeswap/ubeswap#readme",
   "keywords": [
     "uniswap",
     "sushiswap",
