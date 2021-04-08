@@ -12,11 +12,16 @@ import { removeConsoleLog } from "hardhat-preprocessor";
 import "hardhat-spdx-license-identifier";
 import "hardhat-watcher";
 import { HardhatUserConfig, task } from "hardhat/config";
-import { HDAccountsUserConfig } from "hardhat/types";
+import { ActionType, HDAccountsUserConfig } from "hardhat/types";
 import "solidity-coverage";
-import { deploy } from "./tasks/deploy";
 
-task("deploy", "Deploys a step", deploy).addParam("step", "The step to deploy");
+task(
+  "deploy",
+  "Deploys a step",
+  async (...args: Parameters<ActionType<{ step: string }>>) => {
+    (await import("./tasks/deploy")).deploy(...args);
+  }
+).addParam("step", "The step to deploy");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
