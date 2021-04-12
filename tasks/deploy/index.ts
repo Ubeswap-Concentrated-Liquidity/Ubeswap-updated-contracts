@@ -3,6 +3,7 @@ import * as fs from "fs/promises";
 import { ActionType, HardhatRuntimeEnvironment } from "hardhat/types";
 import { deployExchange } from "./001_exchange";
 import { deployLiquidity } from "./002_liquidity";
+import { updateFeeToSetter } from "./003_update-fee-to-setter";
 
 export type DeployFunction = (
   env: HardhatRuntimeEnvironment
@@ -11,6 +12,7 @@ export type DeployFunction = (
 const deployers: { [step: string]: DeployFunction } = {
   exchange: deployExchange,
   liquidity: deployLiquidity,
+  "update-fee-to-setter": updateFeeToSetter,
 };
 
 const makeConfigPath = (step: string, chainId: ICeloNetwork): string =>
