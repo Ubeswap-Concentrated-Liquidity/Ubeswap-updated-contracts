@@ -10,4 +10,4 @@ coverage/
 coverage.json
 .env
 yarn-error.log
-verified-sources/
+sources-flattened-dir/
