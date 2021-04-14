@@ -25,11 +25,12 @@ for CONTRACT in ${CONTRACTS[@]}; do
     CBASE=${CBASENAME%.sol}
     CONTRACT_DIR=$ROOTDIR/build/metadata/$CBASE/
     mkdir -p "$CONTRACT_DIR"
-    docker run -v "$ROOTDIR/$SOURCES_DIR/:/sources" -w /sources ethereum/solc:0.6.12 \
+    docker run -v "$SOURCES_DIR/:/sources" -w /sources ethereum/solc:0.6.12 \
         --optimize --optimize-runs 5000 \
         --combined-json abi,bin,bin-runtime,compact-format,devdoc,hashes,interface,metadata "$CONTRACT" \
         | jq ".contracts | to_entries | map(select(.key | contains(\":$CBASE\"))) | first | .value " \
-        | jq ".metadata | fromjson" > $CONTRACT_DIR/metadata.json
+        > $CONTRACT_DIR/artifact.json
+    cat $CONTRACT_DIR/artifact.json | jq -r ".metadata" > $CONTRACT_DIR/metadata.json
 done
 
 cp -R $SOURCES_DIR/contracts/**/*.sol "$SOURCES_DIR"
