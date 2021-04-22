@@ -20,7 +20,7 @@ export const doTx = async (
 
 const FACTORY_ADDRESS = "0x62d5b84bE28a183aBB507E125B384122D2C25fAE";
 
-const EXECUTIVE_TIMELOCK_ADDRESS = "";
+const EXECUTIVE_TIMELOCK_ADDRESS = "0x1BDB37DAA42E37bFCa4C5536AcF93b1173588981";
 
 export const updateFeeToSetter: DeployFunction = async (env) => {
   const [deployer] = env.celo.getSigners();
