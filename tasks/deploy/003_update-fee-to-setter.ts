@@ -1,6 +1,6 @@
-import { DeployFunction } from "./";
 import { ContractTransaction } from "ethers";
-import { IUniswapV2Router02__factory } from "../../build/types/factories/IUniswapV2Router02__factory";
+import { UniswapV2Factory__factory } from "../../build/types/factories/UniswapV2Factory__factory";
+import { DeployFunction } from "./";
 
 const log = (msg?: any, ...args: any[]) => {
   if (process.env.NODE_ENV === "test") {
@@ -32,10 +32,9 @@ export const updateFeeToSetter: DeployFunction = async (env) => {
   }
   await doTx(
     "Change feeToSetter to the Executive timelock",
-    IUniswapV2Router02__factory.connect(
-      FACTORY_ADDRESS,
-      deployer
-    ).setFeeToSetter(EXECUTIVE_TIMELOCK_ADDRESS)
+    UniswapV2Factory__factory.connect(FACTORY_ADDRESS, deployer).setFeeToSetter(
+      EXECUTIVE_TIMELOCK_ADDRESS
+    )
   );
   return {};
 };
