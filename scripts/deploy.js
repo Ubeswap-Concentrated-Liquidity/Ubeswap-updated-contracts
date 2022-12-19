@@ -12,24 +12,24 @@ async function main() {
   const vault = "0xBe56E9aA7792B2f1F4132631B7A0E1927090D78A";
   // We get the contract to deploy
   const PoolDeployerFactory = await hre.ethers.getContractFactory(
-    "AlgebraPoolDeployer"
+    "UbeswapPoolDeployer"
   );
   const poolDeployer = await PoolDeployerFactory.deploy();
   await poolDeployer.deployed();
-  const AlgebraFactory = await hre.ethers.getContractFactory("AlgebraFactory");
-  const Algebra = await AlgebraFactory.deploy(poolDeployer.address, vault);
+  const UbeswapFactory = await hre.ethers.getContractFactory("UbeswapFactory");
+  const Ubeswap = await UbeswapFactory.deploy(poolDeployer.address, vault);
 
-  await Algebra.deployed();
+  await Ubeswap.deployed();
 
-  await poolDeployer.setFactory(Algebra.address);
+  await poolDeployer.setFactory(Ubeswap.address);
 
-  console.log("AlgebraPoolDeployer to:", poolDeployer.address);
-  console.log("AlgebraFactory deployed to:", Algebra.address);
+  console.log("UbeswapPoolDeployer to:", poolDeployer.address);
+  console.log("UbeswapFactory deployed to:", Ubeswap.address);
 
-  const deployDataPath = path.resolve(__dirname, "../../../deploys.json");
+  const deployDataPath = path.resolve(__dirname, "../../ubeswap/deploys.json");
   let deploysData = JSON.parse(fs.readFileSync(deployDataPath, "utf8"));
   deploysData.poolDeployer = poolDeployer.address;
-  deploysData.factory = Algebra.address;
+  deploysData.factory = Ubeswap.address;
   fs.writeFileSync(deployDataPath, JSON.stringify(deploysData), "utf-8");
 }
 

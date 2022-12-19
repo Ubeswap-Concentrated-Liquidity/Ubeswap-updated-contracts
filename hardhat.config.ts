@@ -26,7 +26,7 @@ task(
 const accounts: HDAccountsUserConfig = {
   mnemonic:
     process.env.MNEMONIC ||
-    "test test test test test test test test test test test junk",
+    "curve warrior kiwi pattern month approve mule believe rare toast easily tourist",
   path: "m/44'/52752'/0'/0/",
 };
 
@@ -61,8 +61,10 @@ export default {
     },
     alfajores: {
       url: fornoURLs[ICeloNetwork.ALFAJORES],
+      // url: `https://celo-alfajores.infura.io/v3/`,
       accounts,
       chainId: ICeloNetwork.ALFAJORES,
+      // chainId: 44787,
       live: true,
       gasPrice: 0.5 * 10 ** 9,
       gas: 8000000,
@@ -104,8 +106,7 @@ export default {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 0,
-        // runs: 5000,
+        runs: 1000,
       },
     },
   },

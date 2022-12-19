@@ -18,10 +18,10 @@ async function main() {
   const POOL = "0xf6d8a1a60df52627f578788a486102992384ff17";
 
   // We get the contract to deploy
-  const AlgebraPool = await hre.ethers.getContractFactory("AlgebraPool");
+  const UbeswapPool = await hre.ethers.getContractFactory("UbeswapPool");
   const Oracle = await hre.ethers.getContractFactory("DataStorageOperator");
 
-  const algeraPool = await AlgebraPool.attach(POOL);
+  const algeraPool = await UbeswapPool.attach(POOL);
 
   console.log((await algeraPool.globalState()).timepointIndex);
   for (let i = 0; i < 4; i++) {
