@@ -70,6 +70,7 @@ export default {
     hardhat: {
       chainId: 31337,
       accounts,
+      allowUnlimitedContractSize: true,
     },
   },
   paths: {
@@ -85,12 +86,26 @@ export default {
         bre.network.name !== "hardhat" && bre.network.name !== "localhost"
     ),
   },
+  typechain: {
+    outDir: "typechain",
+  },
   solidity: {
-    version: "0.6.12",
+    compilers: [
+      {
+        version: "0.5.0",
+      },
+      {
+        version: "0.6.0",
+      },
+      {
+        version: "0.7.6",
+      },
+    ],
     settings: {
       optimizer: {
         enabled: true,
-        runs: 5000,
+        runs: 0,
+        // runs: 5000,
       },
     },
   },
