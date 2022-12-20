@@ -24,9 +24,7 @@ task(
 ).addParam("step", "The step to deploy");
 
 const accounts: HDAccountsUserConfig = {
-  mnemonic:
-    process.env.MNEMONIC ||
-    "curve warrior kiwi pattern month approve mule believe rare toast easily tourist",
+  mnemonic: process.env.MNEMONIC || "",
   path: "m/44'/52752'/0'/0/",
 };
 
@@ -66,8 +64,9 @@ export default {
       chainId: ICeloNetwork.ALFAJORES,
       // chainId: 44787,
       live: true,
-      gasPrice: 0.5 * 10 ** 9,
-      gas: 8000000,
+      // gasPrice: 0.5 * 10 ** 9,
+      // gas: 8000000,
+      // allowUnlimitedContractSize: true,
     },
     hardhat: {
       chainId: 31337,
